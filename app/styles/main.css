@@ -79,3 +79,27 @@ h4 {
 #form_button {
 	background-color: #1A237E;
 }
+
+.select_school {
+	position: relative;
+	margin-top: 2.4em;
+}
+
+.school_list {
+	height: 24em;
+}
+.single_school:hover {
+	text-decoration: none;
+}
+
+.single_school {
+	width: 40em;
+}
+
+.dropdown-button {
+	width: 40em;
+}
+
+.login_dropdown {
+	margin-top: 2em;
+}
