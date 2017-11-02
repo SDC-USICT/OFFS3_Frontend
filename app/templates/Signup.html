@@ -1,0 +1,107 @@
+<div class="row">
+  <div class="col s4">
+
+  </div>
+<div class="col s8">
+
+<!--   <div class="container">
+
+  </div> -->
+<div>
+  <div id="Signup">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8 select_school">
+        <button id="occurrence-button" type="button" class="btn btn-default" style="background-color: white;
+        color: black" uib-dropdown-toggle ng-disabled="disabled">
+            {{ _filter.keys || 'Choose Authentication' }} <span class="caret"></span>
+        </button>
+
+        <input id="rollno" type="text" class="validate">
+      </div>
+      <div class="col-md-offset-2 col-md-8">
+        <div id='dropdown1' class='dropdown-content'>
+          <ul class="school_list">
+            <li ng-repeat= "list in collegeList"><a class="single_school" href="#"> {{ list }}</a></li>
+
+
+
+
+                <div class="category_type pull-left" ng-if="_filter.filterType==='Event'&&_filter.eventName!=='_Register'">
+                    <div class="btn-group" uib-dropdown>
+
+                        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="occurrence-button">
+                         <li role = "menuitem" ng-repeat="keys in _filter.datakey track by $index">
+                       <a href="#" ng-click="setKeysType(_filter, keys)">{{ keys }}</a>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+          <!--   <li><a class="single_school" href="#"> University School of Info &amp; Communication Technology </a></li>
+            <li><a class="single_school" href="#"> University School of Law and Legal Studies </a></li>
+            <li><a class="single_school" href="#"> University School of Management Studies </a></li>
+            <li><a class="single_school" href="#"> University School of Education </a></li>
+            <li><a class="single_school" href="#"> University School of BioTechnology </a></li>
+            <li><a class="single_school" href="#"> University School of Chemical Technology </a></li>
+            <li><a class="single_school" href="#"> University School of Environment Management </a></li>
+            <li><a class="single_school" href="#"> University School of Mass Communication </a></li>
+            <li><a class="single_school" href="#"> University School of Basic and Applied Sciences </a></li>
+            <li><a class="single_school" href="#"> University School of Architecture and Planning </a></li>
+            <li><a class="single_school" href="#"> University School of Humanities and Social</a></li>
+           -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="card" id="Signup">
+    <div class="Signup_head" style="height: 3em">
+      <div class="row">
+        <div class="col s2">
+        </div>
+        <div class="col s8">
+          <span>
+            <h4 style = "color: #1A237E"> <strong>{{ $scope.authentication || 'Choose authentication mode' }}</strong></h4>
+          </span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="Signup_body">
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s12" ng-if="$scope.authentication=='Student'">
+              <input id="rollno" type="text" class="validate" ng-model="user.rollno">
+              <label for="rollno"> Enrollement Number</label>
+            </div>
+            <div class="input-field col s12" ng-if="$scope.authentication!=='Student'">
+              <input id="rollno" type="text" class="validate" ng-model="user.rollno">
+              <label for="rollno"> {{ $scope.audience || 'Audience Id' }}</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="email" type="text" class="validate" ng-model="user.email">
+              <label for="email"> Email </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <button ng-click="LoginUser()" class="btn waves-effect waves-light" id="form_button" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+  </div>
+</div>
+</div>
