@@ -3,7 +3,7 @@ faculty.factory('userService', ['$http', '$timeout', '$rootScope', function($htt
 		send_details: function(collegeName, user, callback) {
 		  $http({
                 method: 'POST',
-                url: BACKEND + '/userDetails',
+                url: BACKEND + '/initials',
                 params: {
                     "college_name" : collegeName,
                     "enrollment_no" : user.rollno,
