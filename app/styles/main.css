@@ -7,6 +7,11 @@ input[type=text]:not(.browser-default) {
 margin: 0.5em 0 0.5em 0;
 
 }
+
+button {
+	color : #1A237E;
+}
+
 .send {
 font-size: 2.5em;
 margin-top: 0.3em;
@@ -102,4 +107,34 @@ h4 {
 
 .login_dropdown {
 	margin-top: 2em;
+}
+
+#grad {
+	margin-left: auto;
+    margin-right: auto;
+    width: 77em;
+}
+
+#center-position {
+	margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+	background-color: #1A237E !important;
+}
+
+#upload-photo {
+    height: 0;
+    width: 0;
+}
+
+#upload-photo-label {
+    border: 1px solid #cccccc;
+    padding: 5px 30px;
+    font-family:arial;
+    font-size: 13px;
+}
+#upload-photo-label:active{
+    background:#ccc;
 }

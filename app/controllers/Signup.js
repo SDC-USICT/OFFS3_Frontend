@@ -1,7 +1,7 @@
 faculty.controller('SignupCtrl',function($scope, $location, userService, Captcha) {
 
 	$scope.user = {};
-	$scope.name ="";
+	$scope.name = "";
 
 	$scope.collegeList = [ {
 		collegeName : "University School of Law and Legal Studies",
