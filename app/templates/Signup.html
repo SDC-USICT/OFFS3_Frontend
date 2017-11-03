@@ -16,7 +16,7 @@
 
           <ul id='dropdown1' class='dropdown-content' style="background-color: white;color: black; width: 34em">
             <li><a class="single_school" href="#"> Search your college</a></li>
-            <li ng-repeat="singleCollege in collegeList"><a class="single_school" href="#" ng-click="setCollege(singleCollege)"> {{ singleCollege }}</a></li>
+            <li ng-repeat="singleCollege in collegeList"><a class="single_school" href="#" ng-click="setCollege(singleCollege)"> {{ singleCollege.collegeName }}</a></li>
           </ul>
       </div>
 
@@ -61,24 +61,28 @@
               <label for="rollno"> {{ $scope.audience || 'Audience Id' }}</label>
             </div>
           </div>
+
           <div class="row">
             <div class="input-field col s12">
               <input id="email" type="text" class="validate" ng-model="user.email">
               <label for="email"> Email </label>
             </div>
           </div>
+
           <div class="row">
             <div class="input-field col s12">
-              <button ng-click="LoginUser()" class="btn waves-effect waves-light" id="form_button" type="submit" name="action">Submit
+
+              <input id="semister" type="text" class="validate" ng-model="user.semister">
+              <label for="semister"> Current Semister </label>
+
+              <button  ng-click="LoginUser()" class="btn waves-effect waves-light pull-right" id="form_button" type="submit" name="action">Submit
                 <i class="material-icons right">send</i>
               </button>
             </div>
           </div>
         </form>
       </div>
-
     </div>
-
   </div>
   </div>
 </div>
