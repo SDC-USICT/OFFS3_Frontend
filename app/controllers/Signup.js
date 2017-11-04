@@ -39,53 +39,10 @@ faculty.controller('SignupCtrl',function($scope, $location, userService, Captcha
     	"student", "teacher", "dean" , "Pro VC", "VC"
     ];
 
-    var basicUrl = '/bdc4-simple-api-angularjs-captcha-example/basic-captcha';
-
-    $scope.validate = function(valid) {
-
-    if (!valid) {
-      return;
-    }
-
-    var captcha = new Captcha();
-
-    var captchaId = captcha.captchaId;
-
-    // captcha code input value for validating captcha at server-side
-    var captchaCode = $scope.captchaCode;
-
-    var postData = {
-      captchaId: captchaId,
-      captchaCode: captchaCode
-    };
-
-    $http({
-      method: 'POST',
-      url: basicUrl,
-      data: JSON.stringify(postData)
-    })
-      .then(function(response) {
-        if (response.data.success) {
-          // captcha validation passed at server-side
-          $scope.successMessages = 'CAPTCHA validation passed.';
-          $scope.errorMessages = null;
-        } else {
-          // captcha validation falied at server-side
-          $scope.errorMessages = 'CAPTCHA validation falied.';
-          $scope.successMessages = null;
-        }
-
-        // always reload captcha image after validating captcha at server-side
-        // in order to update new captcha code for current captcha id
-        captcha.reloadImage();
-      }, function(error) {
-        console.log(error.data);
-      });
-  };
-
-
   	$scope.setCollege = function(singleCollege) {
 		$scope.collegeName = singleCollege.collegeName;
+		console.log(singleCollege);
+		console.log($scope.collegeName);
 	}
 
 	$scope.setUserCategory =  function(userCategory) {
@@ -102,5 +59,5 @@ faculty.controller('SignupCtrl',function($scope, $location, userService, Captcha
 			$location.path('/verify');
 		// })
 	}
-
+	alert("asdjkasd");
 })

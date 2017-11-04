@@ -14,7 +14,7 @@ window.faculty = angular.module('faculty', ['ngAnimate', 'ngRoute', 'BotDetectCa
         	controller: 'dashboardCtrl',
         	templateUrl: './app/templates/dashboard.html'
         })
-        .when('/feedback', {
+        .when('/userFeedback', {
             controller: 'feedbackCtrl',
             templateUrl: './app/templates/feedback.html'
         });
