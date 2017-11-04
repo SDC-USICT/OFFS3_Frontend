@@ -12,12 +12,29 @@ faculty.factory('userService', ['$http', '$timeout', '$rootScope', function($htt
                 }
 
             }).then(function(response) {
+
                 if (callback) {
                     callback(response.data);
                 }
             }, function(response) {
                 console.error(response);
             });
+        },
+
+        getDetails: function(token , callback) {
+            $http({
+                method: 'GET',
+                url: BACKEND + '/feedbackform',
+                params: {
+                    "token" : token
+                }
+            }).then(function(response) {
+                if (callback) {
+                    callback(response.data);
+                }
+            }, function(response) {
+                console.error(response);
+            })
         }
 
 	}

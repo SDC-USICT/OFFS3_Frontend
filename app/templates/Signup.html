@@ -2,20 +2,17 @@
   <div class="col s4">
 
   </div>
-<div class="col s8">
 
-<!--   <div class="container">
-
-  </div> -->
-<div>
-  <div id="Signup">
+  <div class="col s8">
+  <div>
+    <div id="Signup">
       <div class="login_dropdown">
         <button class='dropdown-button btn btn-primary' id="input_field" data-activates='dropdown1' style="background-color: white !important;color: black; width: 34em">
-            {{ collegeName || 'college name' }} <span class="caret pull-right">▼</span>
+            {{ college.collegeName || 'college name' }} <span class="caret pull-right">▼</span>
         </button>
 
           <ul id='dropdown1' class='dropdown-content' style="background-color: white;color: black; width: 34em">
-            <li><a class="single_school" href="#"> Search your college</a></li>
+            <li><a class="single_school"> Search your college</a></li>
             <li ng-repeat="singleCollege in collegeList"><a class="single_school" ng-click="setCollege(singleCollege)"> {{ singleCollege.collegeName }}</a></li>
           </ul>
       </div>
@@ -33,59 +30,62 @@
         </div>
       </div>
 
+    <div class="card" id="Signup">
+        <div class="Signup_head" style="height: 3em">
+          <div class="row">
+            <div class="col s2">
+            </div>
+            <div class="col s8">
+              <span>
+                <h4 style = "color: #1A237E"> <strong>{{ user.category }} login</strong></h4>
+              </span>
+            </div>
 
-<div class="card" id="Signup">
-    <div class="Signup_head" style="height: 3em">
-      <div class="row">
-        <div class="col s2">
+          </div>
         </div>
-        <div class="col s8">
-          <span>
-            <h4 style = "color: #1A237E"> <strong>{{ user.category }} login</strong></h4>
-          </span>
+
+        <div class="Signup_body">
+          <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s12" ng-if="user.category=='student'">
+                  <input id="rollno" type="text" class="validate" ng-model="user.rollno" ng-blur="findSemister()">
+                  <label for="rollno"> Your 11 Digit Enrollment Number</label>
+                </div>
+                <div class="input-field col s12" ng-if="user.category!=='student'">
+                  <input id="rollno" type="text" class="validate" ng-model="user.rollno">
+                  <label for="rollno"> {{ $scope.audience || 'Audience Id' }}</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="email" type="text" class="validate" ng-model="user.email">
+                  <label for="email"> Email </label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s4" ng-if="user.category=='student'">
+                  <input id="semister" type="text" class="validate" ng-model="user.semister">
+                  <label for="semister">Current Semisters</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <button  ng-click="LoginUser()" class="btn waves-effect waves-light pull-right" id="form_button" type="submit" name="action">Submit
+                    <i class="material-icons right">send</i>
+                  </button>
+                </div>
+              </div>
+
+            </form>
+          </div>
         </div>
-
-      </div>
-    </div>
-
-    <div class="Signup_body">
-      <div class="row">
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s12" ng-if="user.category=='Student'">
-              <input id="rollno" type="text" class="validate" ng-model="user.rollno">
-              <label for="rollno"> Enrollement Number</label>
-            </div>
-            <div class="input-field col s12" ng-if="user.category!=='Student'">
-              <input id="rollno" type="text" class="validate" ng-model="user.rollno">
-              <label for="rollno"> {{ $scope.audience || 'Audience Id' }}</label>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="email" type="text" class="validate" ng-model="user.email">
-              <label for="email"> Email </label>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="input-field col s12">
-
-              <input id="semister" type="text" class="validate" ng-model="user.semister">
-              <label for="semister"> Current Semister </label>
-
-              <button  ng-click="LoginUser()" class="btn waves-effect waves-light pull-right" id="form_button" type="submit" name="action">Submit
-                <i class="material-icons right">send</i>
-              </button>
-            </div>
-          </div>
-        </form>
       </div>
     </div>
   </div>
-  </div>
-</div>
 </div>
 <script type="text/javascript">
  $('.dropdown-button').dropdown({
