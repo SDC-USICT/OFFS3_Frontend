@@ -60,6 +60,9 @@ faculty.controller('SignupCtrl',function($scope, $rootScope, $location, userServ
 	}
 
 	$scope.LoginUser = function() {
+	
+			$scope.hidebutton = true;
+			$scope.showSpinner = true;
 		if (!$scope.collegeName && !$scope.user.category && !$scope.user.rollno && !$scope.user.email) {
 			return;
 		}
@@ -74,6 +77,7 @@ faculty.controller('SignupCtrl',function($scope, $rootScope, $location, userServ
 				$location.path('/verify');
 			}
 		})
+	
 	}
 
 	$scope.verifyUser = function() {
