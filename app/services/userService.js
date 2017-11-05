@@ -21,6 +21,26 @@ faculty.factory('userService', ['$http', '$timeout', '$rootScope', function($htt
             });
         },
 
+        verifyUser: function(otp, callback) {
+            $http({
+                method:'POST',
+                url: BACKEND + '/verify',
+                params: {
+                    'password': otp
+                }
+            }).then(function(response) {
+                if (callback) {
+                    callback(response.data);
+                }
+
+            }, function(response) {
+                console.error(response)
+                if (callback) {
+                    callback(response.data);
+                }
+            })
+        },
+
         getDetails: function(token , callback) {
             $http({
                 method: 'GET',
