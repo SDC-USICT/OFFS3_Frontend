@@ -81,6 +81,8 @@ faculty.controller('SignupCtrl',function($scope, $rootScope, $location, userServ
 	}
 
 	$scope.verifyUser = function() {
+			$scope.v1 = true;
+			$scope.v2 = true;
 		if (!$scope.otp) {
 			return;
 		}
