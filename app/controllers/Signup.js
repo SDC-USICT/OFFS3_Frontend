@@ -1,4 +1,4 @@
-faculty.controller('SignupCtrl',function($scope, $location, userService, Captcha) {
+faculty.controller('SignupCtrl',function($scope, $rootScope, $location, userService, Captcha) {
 
 	$scope.user = {};
 	$scope.name = "";
@@ -69,9 +69,29 @@ faculty.controller('SignupCtrl',function($scope, $location, userService, Captcha
 				$location.path('/')
 
 			}else {
-
+				$rootScope.tablename = $scope.college.collegeCode + '_' + $scope.user.category;
+				$rootScope.rollno = $scope.user.rollno;
 				$location.path('/verify');
 			}
+		})
+	}
+
+	$scope.verifyUser = function() {
+		if (!$scope.otp) {
+			return;
+		}
+		var tablename = $rootScope.tablename;
+		var rollno = $rootScope.rollno;
+
+		userService.verifyUser($scope.otp, tablename, rollno, function(response) {
+			if (response == 400) {
+				alert('User is not verified');
+				$location.path('/');
+			} else {
+				$rootScope.userDetails = response;
+				$location.path('/dashboard');
+			}
+
 		})
 	}
 })

@@ -1,11 +1,4 @@
-faculty.controller('dashboardCtrl',function($scope, $location, userService) {
-
-	$scope.details = {};
+faculty.controller('feedbackCtrl',function($scope, $rootScope, $location, userService) {
 
 
-	$scope.getDetails = function() {
-		userService.getDetails(token, function(response) {
-			$scope.details = response.data;
-		});
-	}
 })

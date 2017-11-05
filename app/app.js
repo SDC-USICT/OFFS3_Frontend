@@ -7,7 +7,7 @@ window.faculty = angular.module('faculty', ['ngAnimate', 'ngRoute', 'BotDetectCa
             templateUrl: './app/templates/Signup.html'
         })
         .when('/verify', {
-        	controller: 'verifyCtrl',
+        	controller: 'SignupCtrl',
         	templateUrl: './app/templates/verify.html'
         })
         .when('/dashboard', {
@@ -16,7 +16,7 @@ window.faculty = angular.module('faculty', ['ngAnimate', 'ngRoute', 'BotDetectCa
         })
         .when('/userFeedback', {
             controller: 'feedbackCtrl',
-            templateUrl: './app/templates/feedback.html'
+            templateUrl: './app/templates/userFeedback.html'
         });
         // .when('/Signup', {
         // 	controller: 'SignupCtrl',

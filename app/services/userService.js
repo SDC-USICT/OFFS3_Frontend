@@ -21,11 +21,13 @@ faculty.factory('userService', ['$http', '$timeout', '$rootScope', function($htt
             });
         },
 
-        verifyUser: function(otp, callback) {
+        verifyUser: function(otp, tablename, enrollment_no, callback) {
             $http({
                 method:'POST',
                 url: BACKEND + '/verify',
                 params: {
+                    'tablename': tablename,
+                    'enrollment_no': enrollment_no,
                     'password': otp
                 }
             }).then(function(response) {
@@ -52,6 +54,24 @@ faculty.factory('userService', ['$http', '$timeout', '$rootScope', function($htt
                 if (callback) {
                     callback(response.data);
                 }
+            }, function(response) {
+                console.error(response);
+            })
+        },
+
+        getUser: function(enrollment_no, tablename, callback) {
+            $http({
+                method: 'GET',
+                url: BACKEND + '/dashboard',
+                params: {
+                    enrollment_no: enrollment_no,
+                    tablename: tablename
+                }
+            }).then(function(response) {
+                if (callback) {
+                    callback(response.data);
+                }
+
             }, function(response) {
                 console.error(response);
             })
