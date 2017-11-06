@@ -31,11 +31,15 @@
               </div>
             </div>
             <div class="row">
+            <div class="g-recaptcha" data-sitekey="6LcW-CcUAAAAAMSs6yu89PgIMvFyOT4Bps651gYE"></div>
               <div class="input-field col s12">
-                <button ng-click="verifyUser()" class="btn waves-effect waves-light" id="form_button" type="submit" name="action">Submit
+                <button ng-click="verifyUser()" ng-hide="v1" class="btn waves-effect waves-light" id="form_button" type="submit" name="action">Submit
                   <i class="material-icons right">send</i>
                 </button>
               </div>
+              <div ng-show="v2" class="pull-left" id="loaddiv" style="margin: auto; width: 17%;">
+                    <img style="margin-top:5px;" src="./app/resources/images/5.gif" width="60px" />
+                </div>
             </div>
           </form>
         </div>
@@ -44,3 +48,5 @@
     </div>
   </div>
 </div>
+
+<script src='https://www.google.com/recaptcha/api.js'></script>

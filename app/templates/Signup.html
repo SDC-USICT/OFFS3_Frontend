@@ -73,10 +73,14 @@
               </div>
 
               <div class="row">
+              <div class="g-recaptcha" data-sitekey="6LcW-CcUAAAAAMSs6yu89PgIMvFyOT4Bps651gYE"></div>
                 <div class="input-field col s12">
-                  <button  ng-click="LoginUser()" class="btn waves-effect waves-light pull-right" id="form_button" type="submit" name="action">Submit
+                  <button  ng-click="LoginUser()" ng-hide="hidebutton" class="btn waves-effect waves-light pull-right" id="form_button" type="submit" name="action">Submit
                     <i class="material-icons right">send</i>
                   </button>
+                </div>
+                <div ng-show="showSpinner" class="pull-right" id="loaddiv" style="margin: auto; width: 17%;">
+                    <img style="margin-top:5px;" src="./app/resources/images/5.gif" width="60px" />
                 </div>
               </div>
 
@@ -100,3 +104,5 @@
     }
   );
 </script>
+
+<script src='https://www.google.com/recaptcha/api.js'></script>
