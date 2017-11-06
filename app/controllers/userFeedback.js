@@ -43,11 +43,17 @@ faculty.controller('feedbackCtrl',function($scope, $rootScope, $location, userSe
 
 	$scope.getInstructorsForFeedback = function() {
 
-		$scope.college_name = "usct";
-		var course = "B. TECH";
-		var stream = "CE";
-		var semester =  "3";
-		console.log("Asdasd");
+		console.log($rootScope);
+		var tablename = $rootScope.tablename;
+
+		var table=tablename.split("_");
+		$scope.college_name=table[0];
+
+		var course = $rootScope.userInfo.course;
+		var stream = $rootScope.userInfo.stream;
+		var semester = $rootScope.semester;
+
+		console.log(course, stream, semester);
 		userService.getInstructorsForFeedback($scope.college_name, course, stream, semester, function(response) {
 			$scope.feedback = response;
 

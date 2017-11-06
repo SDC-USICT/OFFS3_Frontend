@@ -57,10 +57,11 @@ faculty.controller('SignupCtrl',function($scope, $rootScope, $location, userServ
 		var roll = _.clone($scope.user.rollno);
 		var	year = roll.substring(roll.length -2, roll.length);
 		$scope.user.semister = (17 - year)*2 + 1;
+		$rootScope.semester = $scope.user.semister;
 	}
 
 	$scope.LoginUser = function() {
-	
+
 			$scope.hidebutton = true;
 			$scope.showSpinner = true;
 		if (!$scope.collegeName && !$scope.user.category && !$scope.user.rollno && !$scope.user.email) {
@@ -74,10 +75,11 @@ faculty.controller('SignupCtrl',function($scope, $rootScope, $location, userServ
 			}else {
 				$rootScope.tablename = $scope.college.collegeCode + '_' + $scope.user.category;
 				$rootScope.rollno = $scope.user.rollno;
+				console.log($rootScope);
 				$location.path('/verify');
 			}
 		})
-	
+
 	}
 
 	$scope.verifyUser = function() {
@@ -95,6 +97,7 @@ faculty.controller('SignupCtrl',function($scope, $rootScope, $location, userServ
 				$location.path('/');
 			} else {
 				$rootScope.userDetails = response;
+				console.log($rootScope);
 				$location.path('/dashboard');
 			}
 
