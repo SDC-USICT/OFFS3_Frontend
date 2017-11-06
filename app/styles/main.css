@@ -138,3 +138,8 @@ h4 {
 #upload-photo-label:active{
     background:#ccc;
 }
+
+.image_groups {
+	height: 25em;
+	width: 25em;
+}

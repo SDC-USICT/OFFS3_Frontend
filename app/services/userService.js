@@ -75,6 +75,27 @@ faculty.factory('userService', ['$http', '$timeout', '$rootScope', function($htt
             }, function(response) {
                 console.error(response);
             })
+        },
+
+        getInstructorsForFeedback: function(college_name, course, stream, semester, callback) {
+            $http({
+                method: 'GET',
+                url: BACKEND + '/feedbackform',
+                params: {
+                    college_name: college_name,
+                    course: course,
+                    stream: stream,
+                    semester: semester
+                }
+            }).then(function(response) {
+                if (callback) {
+
+                    callback(response.data);
+
+                }
+            }, function(response) {
+                console.error(response.data);
+            })
         }
 
 	}

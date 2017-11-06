@@ -10,7 +10,7 @@
 
             <div class="student-name"> {{ user.name }}</div>
 
-            <div class="student-enroll"> {{ user.rollno }}</div>
+            <div class="student-enroll"> {{ user.enrollment_no }}</div>
         </div>
         <div class="col s4">
             <center>
@@ -32,7 +32,7 @@
 
         </div>
         <div class="col s4">
-            <a class="logout btn waves-effect waves-light right">LOG OUT </a>
+            <a class="logout btn waves-effect waves-light right" ng-click="logout()">LOG OUT </a>
         </div>
     </div>
 
@@ -48,39 +48,34 @@
 
             <div class="col s3">
                 <div class="small-title">COURSE</div>
-                <div class="small-content course"></div>
+                <div class="small-content course">{{ user.course }}</div>
             </div>
             <div class="col s3">
                 <div class="small-title">STREAM</div>
 
-                <div class="small-content stream"></div>
+                <div class="small-content stream">{{ user.stream }}</div>
 
             </div>
             <div class="col s3">
                 <div class="small-title">YEAR OF ADMISSION</div>
 
-                <div class="small-contenty yoa"></div>
+                <div class="small-contenty yoa">{{ user.year_of_admission }}</div>
 
             </div>
         </div>
     </div>
 
     <div class="card-action">
-        <div class="right">
-            <a class="editBtn update-email-btn btn waves-effect waves-light">
-                <i class="material-icons edit" id="center-position">mode_edit</i>
-            </a>
-        </div>
         <div class="row">
             <div class="col s12">
 
                 <div class="input-field col s6">
-                    <input id="last_name" type="text" class="validate editField email-id" readonly>
+                    <input placeholder="Email-Id" id="last_name" type="text" class="validate editField email-id" readonly ng-model="user.email">
                     <label for="last_name">Email ID</label>
                 </div>
 
                 <div class="input-field col s6">
-                    <input id="last_name" type="text" class="validate editField phone" readonly>
+                    <input placeholder="phone number" id="last_name" type="text" class="validate editField phone" readonly ng-model="user.phone">
                     <label for="last_name">Phone</label>
                 </div>
             </div>
@@ -88,7 +83,7 @@
     </div>
 
     <div class="card-action">
-        <a class="proceed-to-feedback btn waves-effect waves-light">
+        <a class="proceed-to-feedback btn waves-effect waves-light" ng-click="feedbackProcess()">
             PROCEED TO FEEDBACK PROCESS
         </a>
     </div>
