@@ -95,25 +95,28 @@
     </div>
 
     <div class="card-action">
+
         <a class="proceed-to-feedback btn waves-effect waves-light" ng-click="increasePointer()" ng-if="pointer < attributesList.theory.length" ng-disabled="buttonToggler">
             Next Attribute
             <i class="material-icons right">send</i>
         </a>
+
         <a class="proceed-to-feedback btn waves-effect waves-light" ng-click="switchPointer()" ng-if="pointer==attributesList.theory.length&&pointer2 < 0">
             switch to practicals
             <i class="material-icons right">send</i>
         </a>
+
         <a class="proceed-to-feedback btn waves-effect waves-light" ng-click="increasePointer2()" ng-if="pointer2>=0&&pointer==attributesList.theory.length&&pointer2 < attributesList.practicals.length">
             Next Attributes
             <i class="material-icons right">send</i>
         </a>
+
         <a class="proceed-to-feedback btn waves-effect waves-light" ng-click="sendFeedbackEvaluation()" ng-if="pointer2==attributesList.practicals.length">
             Complete your Evaluation
             <i class="material-icons right">send</i>
-        < /a>
-    </div>
+        </a>
 
-    {{ pointer }}
+    </div>
 </div>
 </div>
 </div>

@@ -82,9 +82,6 @@ faculty.controller('feedbackCtrl',function($scope, $rootScope, $location, userSe
 				feedbackId: feedbackId,
 				score: [$scope.feedbackGivenByTheUser[index]]
 			})
-
-			// $scope.teacherFeedback.foundTeacher.feedbackId = feedbackId;
-			// $scope.teacherFeedback.score = feedbackGivenByTheUser;
 		}
 
 		$scope.checkOccurence++;
@@ -146,8 +143,12 @@ faculty.controller('feedbackCtrl',function($scope, $rootScope, $location, userSe
 	}
 
 	$scope.sendFeedbackEvaluation = function() {
-		console.log($scope.teacherFeedback);
-		userService.sendFeedbackForEvaluation( function(response) {
+		var object = {
+			college_name: "usms",
+			teacherFeedback: $scope.teacherFeedback
+		}
+
+		userService.sendFeedbackForEvaluation(object, function(response) {
 			if (response == 400) {
 
 			} else {

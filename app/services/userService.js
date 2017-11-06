@@ -96,6 +96,19 @@ faculty.factory('userService', ['$http', '$timeout', '$rootScope', function($htt
             }, function(response) {
                 console.error(response.data);
             })
+        },
+
+        sendFeedbackEvaluation: function(teachersFeedback, callback) {
+            $http.post(BACKEND + '/feedback',
+                       teachersFeedback, {
+                       headers: { 'Content-Type': 'application/json' }
+            }).then(function(response) {
+                if (callback) {
+                    callback(response.data);
+                }
+            }, function(response) {
+                console.error(response);
+            })
         }
 
 	}
