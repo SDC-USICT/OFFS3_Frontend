@@ -17,6 +17,9 @@ window.faculty = angular.module('faculty', ['ngAnimate', 'ngRoute', 'BotDetectCa
         .when('/userFeedback', {
             controller: 'feedbackCtrl',
             templateUrl: './app/templates/userFeedback.html'
+        })
+        .when('/thankYouPage', {
+            templateUrl: './app/templates/thankYouPage.html'
         });
         // .when('/Signup', {
         // 	controller: 'SignupCtrl',

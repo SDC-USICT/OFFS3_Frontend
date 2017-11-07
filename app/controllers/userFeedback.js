@@ -43,15 +43,16 @@ faculty.controller('feedbackCtrl',function($scope, $rootScope, $location, userSe
 
 	$scope.getInstructorsForFeedback = function() {
 
-		console.log($rootScope);
 		var tablename = $rootScope.tablename;
 
 		var table=tablename.split("_");
 		$scope.college_name=table[0];
+		$scope.email = $rootScope.userInfo.email;
 
 		var course = $rootScope.userInfo.course;
 		var stream = $rootScope.userInfo.stream;
 		var semester = $rootScope.semester;
+
 
 		console.log(course, stream, semester);
 		userService.getInstructorsForFeedback($scope.college_name, course, stream, semester, function(response) {
@@ -63,7 +64,8 @@ faculty.controller('feedbackCtrl',function($scope, $rootScope, $location, userSe
 
         	$scope.theoryTeacher = seggregatedTeacherType.Theory;
         	$scope.practicalTeacher = seggregatedTeacherType.Practical;
-        	console.log($scope.theoryTeacher);
+
+        	console.log($scope.practicalTeacher.length);
         	console.log($scope.practicalTeacher);
 		})
 	}
@@ -137,6 +139,7 @@ faculty.controller('feedbackCtrl',function($scope, $rootScope, $location, userSe
 
 	$scope.switchPointer = function() {
 		$scope.pointer2 += 1;
+
 	}
 
 	$scope.increasePointer2 = function() {
@@ -149,14 +152,17 @@ faculty.controller('feedbackCtrl',function($scope, $rootScope, $location, userSe
 	}
 
 	$scope.sendFeedbackEvaluation = function() {
+
 		var object = {
-			college_name: "usms",
-			teacherFeedback: $scope.teacherFeedback
+			college_name: $scope.college_name,
+			teacherFeedback: $scope.teacherFeedback,
+			email: $scope.email
 		}
 
 		userService.sendFeedbackForEvaluation(object, function(response) {
+			console.log(response);
 			if (response == 400) {
-
+				// $location.path("/")
 			} else {
 				$location.path("/thankYouPage");
 			}
@@ -165,4 +171,5 @@ faculty.controller('feedbackCtrl',function($scope, $rootScope, $location, userSe
 
 
 	$scope.getInstructorsForFeedback();
+
 });
