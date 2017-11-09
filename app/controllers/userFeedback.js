@@ -151,19 +151,23 @@ faculty.controller('feedbackCtrl',function($scope, $rootScope, $location, userSe
 	$scope.decreasePointer = function() {
 		$scope.pointer -=1;
 		var foundTeacher = $scope.teacherFeedback[$scope.pointer];
-
 		console.log($scope.teacherFeedback);
 
 		for (var x=0; x<$scope.teacherFeedback.length;x++) {
 			$scope.feedbackGivenByTheUser[x] = $scope.teacherFeedback[x].score[$scope.pointer];
 		}
-
-		// for (var x=0; x<foundTeacher.score.length; x++ ) {
-		// 	$scope.feedbackGivenByTheUser[x] = foundTeacher.score[x];
-		// }
-
-		// $scope.feedbackGivenByTheUser = foundTeacher.feedbackGivenByTheUser;
 	}
+
+	// $scope.decreasePointer2 = function() {
+	// 	$scope.pointer2 -= 1;
+	// 	var foundTeacher = $scope.teacherFeedback[$scope.pointer2];
+
+	// 	console.log($scope.teacherFeedback);
+
+	// 	for (var x=0; x<$scope.teacherFeedback.length;x++) {
+	// 		$scope.feedbackGivenByTheUser[x] =
+	// 	}
+	// }
 
 	$scope.switchPointer = function() {
 		$scope.pointer2 += 1;
@@ -184,7 +188,7 @@ faculty.controller('feedbackCtrl',function($scope, $rootScope, $location, userSe
 		var object = {
 			college_name: $scope.college_name,
 			teacherFeedback: $scope.teacherFeedback,
-			email: $scope.email,
+			email: $scope.email
 
 		}
 
