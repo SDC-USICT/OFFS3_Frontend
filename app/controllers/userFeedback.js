@@ -43,13 +43,22 @@ faculty.controller('feedbackCtrl',function($scope, $rootScope, $location, userSe
 
 	$scope.getInstructorsForFeedback = function() {
 
+		console.log($rootScope);
+
 		var tablename = $rootScope.tablename;
 
 		var table=tablename.split("_");
 		$scope.college_name=table[0];
-		$scope.email = $rootScope.userInfo.email;
+		// $scope.college_name = "usap";
 
-		var course = $rootScope.userInfo.course;
+		$scope.email = $rootScope.userInfo.email;
+		// $scope.email = "hanugautam96@gmail.com";
+		// var course = "B.Arch";
+		// var stream = "Section A";
+		// var semester = "1";
+
+		var course = $rootScope.userInfo.course;;
+
 		var stream = $rootScope.userInfo.stream;
 		var semester = $rootScope.semester;
 
@@ -58,15 +67,16 @@ faculty.controller('feedbackCtrl',function($scope, $rootScope, $location, userSe
 		userService.getInstructorsForFeedback($scope.college_name, course, stream, semester, function(response) {
 			$scope.feedback = response;
 
+			console.log(response);
+
 			var seggregatedTeacherType = _.groupBy(response, function(result) {
             		return result.type;
         	});
 
         	$scope.theoryTeacher = seggregatedTeacherType.Theory;
         	$scope.practicalTeacher = seggregatedTeacherType.Practical;
-
-        	console.log($scope.practicalTeacher.length);
-        	console.log($scope.practicalTeacher);
+        	console.log($scope.theoryTeacher);
+        	console.log($scope.practicalTeacher)
 		})
 	}
 
@@ -88,7 +98,8 @@ faculty.controller('feedbackCtrl',function($scope, $rootScope, $location, userSe
 		} else {
 			$scope.teacherFeedback.push({
 				feedbackId: feedbackId,
-				score: [$scope.feedbackGivenByTheUser[index]]
+				score: [$scope.feedbackGivenByTheUser[index]],
+				type: 'Theory'
 			})
 		}
 
@@ -98,7 +109,6 @@ faculty.controller('feedbackCtrl',function($scope, $rootScope, $location, userSe
 			$scope.buttonToggler = false;
 		}
 	}
-
 
 	$scope.addFeedbackToPracticalTeacher = function(feedbackId, index) {
 		if ($scope.feedbackGivenByTheUser[index] == null) {
@@ -116,7 +126,8 @@ faculty.controller('feedbackCtrl',function($scope, $rootScope, $location, userSe
 		} else {
 			$scope.teacherFeedback.push({
 				feedbackId: feedbackId,
-				score: [$scope.feedbackGivenByTheUser[index]]
+				score: [$scope.feedbackGivenByTheUser[index]],
+				type: 'Practical'
 			})
 		}
 		$scope.checkOccurence++;
@@ -135,6 +146,23 @@ faculty.controller('feedbackCtrl',function($scope, $rootScope, $location, userSe
 			$scope.feedbackGivenByTheUser[x] = null;
 		}
 
+	}
+
+	$scope.decreasePointer = function() {
+		$scope.pointer -=1;
+		var foundTeacher = $scope.teacherFeedback[$scope.pointer];
+
+		console.log($scope.teacherFeedback);
+
+		for (var x=0; x<$scope.teacherFeedback.length;x++) {
+			$scope.feedbackGivenByTheUser[x] = $scope.teacherFeedback[x].score[$scope.pointer];
+		}
+
+		// for (var x=0; x<foundTeacher.score.length; x++ ) {
+		// 	$scope.feedbackGivenByTheUser[x] = foundTeacher.score[x];
+		// }
+
+		// $scope.feedbackGivenByTheUser = foundTeacher.feedbackGivenByTheUser;
 	}
 
 	$scope.switchPointer = function() {
@@ -156,7 +184,8 @@ faculty.controller('feedbackCtrl',function($scope, $rootScope, $location, userSe
 		var object = {
 			college_name: $scope.college_name,
 			teacherFeedback: $scope.teacherFeedback,
-			email: $scope.email
+			email: $scope.email,
+
 		}
 
 		userService.sendFeedbackForEvaluation(object, function(response) {
