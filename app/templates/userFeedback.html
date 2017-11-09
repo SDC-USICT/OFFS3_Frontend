@@ -46,20 +46,17 @@
                   <div class="caption" style="text-align: center; width: 140px">
 
                     <div class="row">
-                      <div clas="col s12" >
-                        {{ singleTheoryTeacher.teacher}}
-                      </div>
-
-                      <div class="col s6" style="margin-top: 2.1em;font-size: 11px;">
-                        {{ singleTheoryTeacher.subject_code }}
-                      </div>
-                      <div class="col s6">
-                          <input type="number" min="1" max="5" maxlength="1" ng-model="feedbackGivenByTheUser[$index]" ng-blur="addFeedbackToTheoryTeacher(singleTheoryTeacher.feedback_id, $index)">
-                      </div>
-
-                      <div class="col s12" >
-                        {{ singleTheoryTeacher.subject_name }}
-                      </div>
+                      {{ singleTheoryTeacher.teacher}}
+                      <br>
+                      <div style="margin-top: 2.1em;font-size: 11px;">{{ singleTheoryTeacher.subject_code }}</
+                      <br>
+                      {{ singleTheoryTeacher.subject_name }}
+                      <br>
+                      <input type="number" min="1" max="5" maxlength="1" ng-model="feedbackGivenByTheUser[$index]" 
+                             ng-blur="addFeedbackToTheoryTeacher(singleTheoryTeacher.feedback_id, $index)">
+                    </div>
+                    
+                 
 
                       </div>
                     </div>
