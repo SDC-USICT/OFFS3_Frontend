@@ -147,3 +147,7 @@ h4 {
 h3 {
 	font-family: ROBERTO;
 }
+
+.modal {
+	margin-top: 5em !important;
+}

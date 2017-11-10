@@ -1,4 +1,4 @@
-window.faculty = angular.module('faculty', ['ngAnimate', 'ngRoute', 'BotDetectCaptcha'])
+window.faculty = angular.module('faculty', ['ngAnimate', 'ngRoute', 'ui.bootstrap',  'BotDetectCaptcha'])
 .config(['$routeProvider', '$locationProvider', '$httpProvider',
     function($routeProvider, $locationProvider, $httpProvider) {
         $routeProvider

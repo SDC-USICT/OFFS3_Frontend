@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title Page Title
+  body
+    h1 This is a Heading
+    p Hi #{rightColumnList.customerName},
+    p Your order number #{rightColumnList.orderIncrementId} is being returned as requested.
+     
+    //- - for (var i=0;i<#{rightColumnList.pixelUrl.length};i++){ 
+    //-    li = #{rightColumnList.pixelUrl[i]}
+    //- - } 
+
+      
+    p
+      | Your refund of INR #{rightColumnList.refundAmount}/- has been initiated.The amount will be credited in 5-7 working days.
+
+
