@@ -42,7 +42,7 @@ faculty.controller('SignupCtrl',function($scope, $rootScope, $location, userServ
 
 
     $scope.userCategoryList = [
-    	"student", "teacher", "dean" , "Pro VC", "VC"
+    	"Student", "Teacher", "Dean" , "Pro VC", "VC"
     ];
 
   	$scope.setCollege = function(singleCollege) {
@@ -95,7 +95,7 @@ faculty.controller('SignupCtrl',function($scope, $rootScope, $location, userServ
 		var tablename = $rootScope.tablename;
 		var rollno = $rootScope.rollno;
 		console.log($rootScope.tablename);
-		
+
 		userService.verifyUser($scope.otp, tablename, rollno, function(response) {
 			if (response == 400) {
 				alert('User is not verified');

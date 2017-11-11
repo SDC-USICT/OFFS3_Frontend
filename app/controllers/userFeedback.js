@@ -69,6 +69,10 @@ faculty.controller('feedbackCtrl',function($scope, $rootScope, $location, userSe
 			$scope.feedback = response;
 
 			console.log(response);
+			for (var x=0;x<$scope.feedback.length;x++) {
+				$scope.feedback[x].type = ($scope.feedback[x].type).toLowerCase();
+
+			}
 
 			var seggregatedTeacherType = _.groupBy(response, function(result) {
             		return result.type;
