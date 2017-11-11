@@ -32,7 +32,7 @@ faculty.controller('SignupCtrl',function($scope, $rootScope, $location, userServ
 		collegeCode : "usap"},
 
 		{collegeName :"University School of Humanities and Social",
-		collegeCode : "ushs"},
+		collegeCode : "ushss"},
 
 		{collegeName :"University School of Info.,Comm. and Technology",
 		collegeCode : "usict"
@@ -60,6 +60,10 @@ faculty.controller('SignupCtrl',function($scope, $rootScope, $location, userServ
 		$rootScope.semester = $scope.user.semister;
 	}
 
+	$scope.updateSemester = function() {
+		$rootScope.semester = $scope.user.semister;
+		console.log($rootScope.semester);
+	}
 	$scope.LoginUser = function() {
 
 			$scope.hidebutton = true;
@@ -90,7 +94,8 @@ faculty.controller('SignupCtrl',function($scope, $rootScope, $location, userServ
 		}
 		var tablename = $rootScope.tablename;
 		var rollno = $rootScope.rollno;
-
+		console.log($rootScope.tablename);
+		
 		userService.verifyUser($scope.otp, tablename, rollno, function(response) {
 			if (response == 400) {
 				alert('User is not verified');

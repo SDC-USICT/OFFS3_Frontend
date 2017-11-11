@@ -67,7 +67,7 @@
 
               <div class="row">
                 <div class="input-field col s4" ng-if="user.category=='student'">
-                  <input placeholder="your semester" id="semister" type="text" class="validate" ng-model="user.semister">
+                  <input placeholder="your semester" id="semister" type="text" class="validate" ng-model="user.semister" ng-blur="updateSemester()">
                   <label for="semister">Current semistersters</label>
                 </div>
               </div>

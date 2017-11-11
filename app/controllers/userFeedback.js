@@ -1,3 +1,4 @@
+
 faculty.controller('feedbackCtrl',function($scope, $rootScope, $location, userService) {
 
 	$scope.feedback;
@@ -72,7 +73,7 @@ faculty.controller('feedbackCtrl',function($scope, $rootScope, $location, userSe
 			var seggregatedTeacherType = _.groupBy(response, function(result) {
             		return result.type;
         	});
-
+			console.log(seggregatedTeacherType);
         	$scope.theoryTeacher = seggregatedTeacherType.Theory;
         	$scope.practicalTeacher = seggregatedTeacherType.Practical;
         	console.log($scope.theoryTeacher);
