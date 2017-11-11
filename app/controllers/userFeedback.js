@@ -1,5 +1,6 @@
 faculty.controller('feedbackCtrl',function($scope, $rootScope, $uibModal, $log, $document, $location, userService) {
 
+
 	$scope.feedback;
 	$scope.pointer  = 0;
 	$scope.pointer2 = -1;
@@ -73,11 +74,15 @@ faculty.controller('feedbackCtrl',function($scope, $rootScope, $uibModal, $log, 
 			$scope.feedback = response;
 
 			console.log(response);
+			for (var x=0;x<$scope.feedback.length;x++) {
+				$scope.feedback[x].type = ($scope.feedback[x].type).toLowerCase();
+
+			}
 
 			var seggregatedTeacherType = _.groupBy(response, function(result) {
             		return result.type;
         	});
-
+			console.log(seggregatedTeacherType);
         	$scope.theoryTeacher = seggregatedTeacherType.Theory;
         	$scope.practicalTeacher = seggregatedTeacherType.Practical;
         	console.log($scope.theoryTeacher);
